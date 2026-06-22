@@ -4,6 +4,14 @@ import { ScrambleText } from '../hooks/useScramble'
 
 const PROJECTS = [
   {
+    title: 'MyBuko',
+    desc: 'A goal-sharing social platform connecting dreamers to achieve together. Features include real-time community posts, milestone generation, progress tracking, and social engagement.',
+    tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'AI integration'],
+    link: 'https://mybuko.vercel.app',
+    accent: '#a855f7',
+    icon: '🎯',
+  },
+  {
     title: 'Simon Game',
     desc: 'Classic memory-based Simon Game with interactive feedback, sound integration, and level progression tracking.',
     tags: ['JavaScript', 'jQuery', 'DOM Animation', 'Game Logic'],

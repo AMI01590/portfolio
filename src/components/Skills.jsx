@@ -4,35 +4,78 @@ import { ScrambleText } from '../hooks/useScramble'
 
 const SKILL_GROUPS = [
   {
-    icon: 'devices', color: 'text-primary', bg: 'bg-primary/10',
-    title: 'Frontend',
-    tags: ['HTML', 'CSS', 'JavaScript (ES6+)', 'React', 'Tailwind CSS'],
+    icon: 'code', color: 'text-primary', bg: 'bg-primary/10',
+    title: 'Programming',
+    tags: ['C', 'C++', 'JavaScript', 'Python', 'TypeScript'],
     bars: [
-      { name: 'HTML/CSS', pct: 90 },
-      { name: 'JavaScript', pct: 78 },
-      { name: 'React', pct: 70 },
-      { name: 'Tailwind', pct: 82 },
-    ]
-  },
-  {
-    icon: 'dns', color: 'text-tertiary', bg: 'bg-tertiary/10',
-    title: 'Backend & Cloud',
-    tags: ['Python', 'Node.js', 'Express.js', 'MySQL', 'AWS', 'GitHub'],
-    bars: [
+      { name: 'JavaScript / TypeScript', pct: 88 },
       { name: 'Python', pct: 80 },
-      { name: 'Node / Express', pct: 68 },
-      { name: 'MySQL', pct: 72 },
-      { name: 'AWS', pct: 55 },
-    ]
+      { name: 'C / C++', pct: 75 },
+    ],
+    span: 'col-span-1'
   },
   {
-    icon: 'security', color: 'text-[#f0a0ff]', bg: 'bg-purple-400/10',
-    title: 'Security',
-    tags: ['Linux', 'Wireshark'],
+    icon: 'memory', color: 'text-tertiary', bg: 'bg-tertiary/10',
+    title: 'Core CS',
+    tags: ['OOPs', 'Operating Systems', 'Cyber Security', 'Data Structures & Algorithms'],
     bars: [
-      { name: 'Linux Admin', pct: 80 },
-      { name: 'Wireshark Analysis', pct: 70 },
-    ]
+      { name: 'Data Structures & Algorithms', pct: 82 },
+      { name: 'OOPs', pct: 85 },
+      { name: 'Operating Systems', pct: 75 },
+    ],
+    span: 'col-span-1'
+  },
+  {
+    icon: 'devices', color: 'text-[#a855f7]', bg: 'bg-[#a855f7]/10',
+    title: 'Web Development',
+    tags: ['Next.js 16', 'React 19', 'Vite', 'Tailwind CSS 4.0', 'Framer Motion', 'HTML5 Canvas', 'HTML', 'CSS', 'JavaScript (ES6+)'],
+    bars: [
+      { name: 'React / Next.js', pct: 90 },
+      { name: 'Tailwind CSS / Canvas', pct: 88 },
+      { name: 'HTML5 & CSS3', pct: 92 },
+    ],
+    span: 'md:col-span-2'
+  },
+  {
+    icon: 'dns', color: 'text-[#f0a0ff]', bg: 'bg-[#f0a0ff]/10',
+    title: 'Backend & APIs',
+    tags: ['Node.js', 'Express.js', 'Socket.io', 'REST APIs', 'JWT Authentication'],
+    bars: [
+      { name: 'Node.js / Express', pct: 85 },
+      { name: 'REST APIs & Security', pct: 88 },
+      { name: 'Socket.io', pct: 72 },
+    ],
+    span: 'col-span-1'
+  },
+  {
+    icon: 'storage', color: 'text-[#3cddc7]', bg: 'bg-[#3cddc7]/10',
+    title: 'Database',
+    tags: ['PostgreSQL', 'Prisma ORM'],
+    bars: [
+      { name: 'PostgreSQL', pct: 80 },
+      { name: 'Prisma ORM', pct: 85 },
+    ],
+    span: 'col-span-1'
+  },
+  {
+    icon: 'cloud', color: 'text-[#ff8080]', bg: 'bg-[#ff8080]/10',
+    title: 'Cloud & Media',
+    tags: ['Cloudinary', 'Railway', 'Vercel'],
+    bars: [
+      { name: 'Vercel / Railway', pct: 88 },
+      { name: 'Cloudinary', pct: 82 },
+    ],
+    span: 'col-span-1'
+  },
+  {
+    icon: 'handyman', color: 'text-[#ffb86c]', bg: 'bg-[#ffb86c]/10',
+    title: 'Tools & Platforms',
+    tags: ['Git', 'GitHub', 'Linux', 'Figma'],
+    bars: [
+      { name: 'Git & GitHub', pct: 90 },
+      { name: 'Linux / Figma', pct: 78 },
+    ],
+    span: 'col-span-1'
   },
 ]
 
@@ -99,13 +142,13 @@ export default function Skills() {
           variants={sectionVariants}
           initial="hidden"
           animate={inView ? 'show' : 'hidden'}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {SKILL_GROUPS.map((group) => (
             <motion.div
               key={group.title}
               variants={cardVariant}
-              className="p-8 rounded-2xl bg-surface-container border border-outline/10 hover:border-primary/20 transition-colors group"
+              className={`p-8 rounded-2xl bg-surface-container border border-outline/10 hover:border-primary/20 transition-colors group ${group.span || ''}`}
             >
               <div className={`w-11 h-11 rounded-xl ${group.bg} flex items-center justify-center ${group.color} mb-6 group-hover:scale-110 transition-transform`}>
                 <span className="material-symbols-outlined">{group.icon}</span>
